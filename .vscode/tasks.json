@@ -6,7 +6,7 @@
         {
             "label": "RUN",
             "type": "shell",
-            "command": "go run bot-backend.go"
+            "command": "nodemon --exec go run bot-backend.go"
         }
     ]
 }

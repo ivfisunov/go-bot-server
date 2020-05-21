@@ -1,5 +1,10 @@
 package types
 
+// MailJSONRequest type
+type MailJSONRequest struct {
+	Mail string `json:"mail" binding:"required"`
+}
+
 // MobileJSONRequest type
 type MobileJSONRequest struct {
 	Mobile string `json:"mobile" binding:"required"`

@@ -59,7 +59,7 @@ func SearchUserByMobile(userObj types.MobileJSONRequest) types.FindUserByMobileR
 	return user
 }
 
-// SearchUserByLastName finds user in DB
+// SearchUserByLastName finds users in DB
 func SearchUserByLastName(userObj types.UserLastNameJSONRequest) types.FindUserByLastNameResponse {
 	collection := client.Database("nspk").Collection("users")
 
@@ -81,10 +81,10 @@ func SearchUserByLastName(userObj types.UserLastNameJSONRequest) types.FindUserB
 
 	for cursor.Next(cxt) {
 		var user types.User
-		err := cursor.Decode(&user)
-		if err != nil {
-			return users
-		}
+		cursor.Decode(&user)
+		// if err != nil {
+		// 	return users
+		// }
 		users.Employees = append(users.Employees, user)
 	}
 
